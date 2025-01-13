@@ -14,7 +14,7 @@ The project is deployed and accessible at [Job Sea - Live Demo](http://jobsea.ne
  ![Home Page](https://github.com/abuiron/jobsea-fe/blob/main/src/images/front.png?raw=true)
 
 ## Dashboard Page
- ![Dashboard  page](https://github.com/abuiron/jobsea-fe/blob/main/src/images/Dashboard.png?raw=true)
+ ![Dashboard  page](https://github.com/abuiron/jobsea-fe/blob/main/src/images/dashboard.png?raw=true)
 
 ## Key Features
 
