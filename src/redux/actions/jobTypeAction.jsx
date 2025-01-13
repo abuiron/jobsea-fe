@@ -14,7 +14,7 @@ import {
 export const jobTypeLoadAction = () => async (dispatch) => {
     dispatch({ type: JOB_TYPE_LOAD_REQUEST });
     try {
-        const { data } = await axios.get('http://localhost:5000/api/type/jobs');
+        const { data } = await axios.get('https://jobsea-be.onrender.com/api/type/jobs');
         dispatch({
             type: JOB_TYPE_LOAD_SUCCESS,
             payload: data
@@ -41,7 +41,7 @@ export const createJobTypeAction = (jobtype) => async (dispatch) => {
             },
         };
 
-        const { data } = await axios.post("http://localhost:5000/api/type/create", jobtype, config);
+        const { data } = await axios.post("https://jobsea-be.onrender.com/api/type/create", jobtype, config);
         dispatch({
             type: CREATE_JOB_TYPE_SUCCESS,
             payload: data

@@ -22,7 +22,7 @@ import {
 export const jobLoadAction = (pageNumber, keyword = '', cat = '', location = '') => async (dispatch) => {
     dispatch({ type: JOB_LOAD_REQUEST });
     try {
-        const { data } = await axios.get(`http://localhost:5000/api/jobs/show/?pageNumber=${pageNumber}&keyword=${keyword}&cat=${cat}&location=${location}`)
+        const { data } = await axios.get(`https://jobsea-be.onrender.com/api/jobs/show/?pageNumber=${pageNumber}&keyword=${keyword}&cat=${cat}&location=${location}`)
         dispatch({
             type: JOB_LOAD_SUCCESS,
             payload: data
@@ -39,7 +39,7 @@ export const jobLoadAction = (pageNumber, keyword = '', cat = '', location = '')
 export const jobLoadSingleAction = (id) => async (dispatch) => {
     dispatch({ type: JOB_LOAD_SINGLE_REQUEST });
     try {
-        const { data } = await axios.get(`http://localhost:5000/api/job/${id}`);
+        const { data } = await axios.get(`https://jobsea-be.onrender.com/api/job/${id}`);
         dispatch({
             type: JOB_LOAD_SINGLE_SUCCESS,
             payload: data
@@ -57,7 +57,7 @@ export const jobLoadSingleAction = (id) => async (dispatch) => {
 export const deleteSingleJobAction = (job_id) => async (dispatch) => {
     dispatch({ type: DELETE_JOB_REQUEST });
     try {
-        const { data } = await axios.delete(`http://localhost:5000/api/job/delete/${job_id}`);
+        const { data } = await axios.delete(`https://jobsea-be.onrender.com/api/job/delete/${job_id}`);
         dispatch({
             type: DELETE_JOB_SUCCESS,
             payload: data
@@ -77,7 +77,7 @@ export const deleteSingleJobAction = (job_id) => async (dispatch) => {
 export const editSingleJobAction = (job) => async (dispatch) => {
     dispatch({ type: EDIT_JOB_REQUEST });
     try {
-        const { data } = await axios.put(`http://localhost:5000/api/job/update/${job._id}`, job);
+        const { data } = await axios.put(`https://jobsea-be.onrender.com/api/job/update/${job._id}`, job);
         dispatch({
             type: EDIT_JOB_SUCCESS,
             payload: data
@@ -97,7 +97,7 @@ export const registerAjobAction = (job) => async (dispatch) => {
     dispatch({ type: REGISTER_JOB_REQUEST })
 
     try {
-        const { data } = await axios.post("http://localhost:5000/api/job/create", job)
+        const { data } = await axios.post("https://jobsea-be.onrender.com/api/job/create", job)
         dispatch({
             type: REGISTER_JOB_SUCCESS,
             payload: data

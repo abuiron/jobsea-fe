@@ -25,7 +25,7 @@ import {
 export const userSignInAction = (user) => async (dispatch) => {
     dispatch({ type: USER_SIGNIN_REQUEST });
     try {
-        const { data } = await axios.post("http://localhost:5000/api/signin", user);
+        const { data } = await axios.post("https://jobsea-be.onrender.com/api/signin", user);
 
         // Log the response data to check if the token is there
         console.log("Response from backend:", data);
@@ -59,7 +59,7 @@ export const userSignInAction = (user) => async (dispatch) => {
 export const userSignUpAction = (user) => async (dispatch) => {
     dispatch({ type: USER_SIGNUP_REQUEST });
     try {
-        const { data } = await axios.post("http://localhost:5000/api/signup", user);
+        const { data } = await axios.post("https://jobsea-be.onrender.com/api/signup", user);
         dispatch({
             type: USER_SIGNUP_SUCCESS,
             payload: data
@@ -79,7 +79,7 @@ export const userLogoutAction = () => async (dispatch) => {
     dispatch({ type: USER_LOGOUT_REQUEST });
     try {
         localStorage.removeItem('userInfo');
-        const { data } = await axios.get("http://localhost:5000/api/logout");
+        const { data } = await axios.get("https://jobsea-be.onrender.com/api/logout");
         dispatch({
             type: USER_LOGOUT_SUCCESS,
             payload: data
@@ -108,7 +108,7 @@ export const userProfileAction = () => async (dispatch) => {
         }
 
         // Make the request with the token in the headers
-        const { data } = await axios.get("http://localhost:5000/api/me", {
+        const { data } = await axios.get("https://jobsea-be.onrender.com/api/me", {
             headers: {
                 Authorization: `Bearer ${userInfo.token}`
             }
@@ -141,7 +141,7 @@ export const allUserAction = () => async (dispatch) => {
         }
 
         // Make the request with the token in the headers
-        const { data } = await axios.get("http://localhost:5000/api/allusers", {
+        const { data } = await axios.get("https://jobsea-be.onrender.com/api/allusers", {
             headers: {
                 Authorization: `Bearer ${userInfo.token}`
             }
@@ -176,7 +176,7 @@ export const userApplyJobAction = (job) => async (dispatch) => {
         };
 
         // Make the request with the token included
-        const { data } = await axios.post("http://localhost:5000/api/user/jobhistory", job, config);
+        const { data } = await axios.post("https://jobsea-be.onrender.com/api/user/jobhistory", job, config);
         dispatch({
             type: USER_APPLY_JOB_SUCCESS,
             payload: data
